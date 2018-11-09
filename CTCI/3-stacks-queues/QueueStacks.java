@@ -8,18 +8,23 @@ public class QueueStacks {
 	}
 
 	public void push(int val) {
-
+		stack1.push(val);
 	}
 
 	public void pop() {
-
+		if (stack2.isEmpty()) {
+			while (!stack1.isEmpty()) {
+				stack2.push(stack1.pop());
+			}
+		}
+		stack2.pop();
 	}
 
 	public int peek() {
-
+		return stack2.peek();
 	}
 
 	public boolean isEmpty() {
-		
+		return stack1.isEmpty() && stack2.isEmpty();
 	}
 }
